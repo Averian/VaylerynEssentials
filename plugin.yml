@@ -1,0 +1,8 @@
+name: GildorymEssentials
+author: Lucariatias
+version: 1.0.0
+main: com.gildorymrp.essentials.GildorymEssentials
+permissions:
+    gildorym.essentials.boatsigns.create:
+        description: Allows you to create boat signs
+        default: op
