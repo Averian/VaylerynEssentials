@@ -3,6 +3,7 @@ package com.gildorymrp.essentials;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
@@ -18,11 +19,18 @@ import com.gildorymrp.api.plugin.economy.GildorymEconomyPlugin;
 
 public class PlayerInteractListener implements Listener {
 	
+	private GildorymEssentials plugin;
+	
+	public PlayerInteractListener(GildorymEssentials plugin) {
+		this.plugin = plugin;
+	}
+	
 	@EventHandler
 	public void onPlayerInteract(PlayerInteractEvent event) {
 		if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
 			if (event.getClickedBlock().getState() instanceof Sign) {
 				Sign sign = (Sign) event.getClickedBlock().getState();
+				// Boats
 				if (sign.getLine(0).equalsIgnoreCase(ChatColor.BLUE + "[boat]")) {
 					Integer cost = Integer.parseInt(sign.getLine(1));
 					World world = Bukkit.getServer().getWorld(sign.getLine(2));
@@ -42,7 +50,17 @@ public class PlayerInteractListener implements Listener {
 					}
 				}
 			}
+			if (event.getClickedBlock().getType() == Material.BOOKSHELF) {
+				if (!event.getPlayer().isSneaking()) {
+					if (plugin.getBookshelfInventory(event.getClickedBlock()) == null) {
+						plugin.createBookshelfInventory(event.getClickedBlock());
+					}
+					event.getPlayer().openInventory(plugin.getBookshelfInventory(event.getClickedBlock()));
+					event.setCancelled(true);
+				}
+			}
 		}
+		
 	}
-
+	
 }
