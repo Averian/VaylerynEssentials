@@ -1,11 +1,11 @@
-package com.gildorymrp.essentials;
+package io.github.vayleryn.vaylerynessentials;
+
+import io.github.vayleryn.vaylerynlib.plugin.essentials.Kit;
 
 import java.util.HashSet;
 
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-
-import com.gildorymrp.api.plugin.essentials.Kit;
 
 public class KitImpl extends HashSet<ItemStack> implements Kit {
 	

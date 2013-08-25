@@ -1,4 +1,4 @@
-GildorymEssentials
+VaylerynEssentials
 ===========
 
-Essential commands and features for Gildorym
+Essential commands and features

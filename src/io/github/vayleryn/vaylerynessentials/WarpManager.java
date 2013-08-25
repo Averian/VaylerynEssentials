@@ -1,4 +1,4 @@
-package com.gildorymrp.essentials;
+package io.github.vayleryn.vaylerynessentials;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -12,10 +12,10 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 public class WarpManager {
 	
-	private GildorymEssentials plugin;
+	private VaylerynEssentials plugin;
 	private Map<String, Location> warps = new HashMap<String, Location>();
 	
-	public WarpManager(GildorymEssentials plugin) {
+	public WarpManager(VaylerynEssentials plugin) {
 		this.plugin = plugin;
 	}
 	

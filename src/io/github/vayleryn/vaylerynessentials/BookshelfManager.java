@@ -1,4 +1,4 @@
-package com.gildorymrp.essentials;
+package io.github.vayleryn.vaylerynessentials;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,10 +15,10 @@ import org.bukkit.inventory.ItemStack;
 
 public class BookshelfManager {
 	
-	private GildorymEssentials plugin;
+	private VaylerynEssentials plugin;
 	private Map<Block, Inventory> bookshelfInventories = new HashMap<Block, Inventory>();
 	
-	public BookshelfManager(GildorymEssentials plugin) {
+	public BookshelfManager(VaylerynEssentials plugin) {
 		this.plugin = plugin;
 	}
 	

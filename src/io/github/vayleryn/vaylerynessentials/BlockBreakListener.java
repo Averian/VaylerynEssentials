@@ -1,4 +1,4 @@
-package com.gildorymrp.essentials;
+package io.github.vayleryn.vaylerynessentials;
 
 import java.io.File;
 
@@ -9,9 +9,9 @@ import org.bukkit.inventory.ItemStack;
 
 public class BlockBreakListener implements Listener {
 	
-	private GildorymEssentials plugin;
+	private VaylerynEssentials plugin;
 	
-	public BlockBreakListener(GildorymEssentials plugin) {
+	public BlockBreakListener(VaylerynEssentials plugin) {
 		this.plugin = plugin;
 	}
 	

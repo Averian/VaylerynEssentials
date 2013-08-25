@@ -1,4 +1,6 @@
-package com.gildorymrp.essentials;
+package io.github.vayleryn.vaylerynessentials;
+
+import io.github.vayleryn.vaylerynlib.plugin.essentials.Kit;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -9,14 +11,12 @@ import java.util.Map;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
 
-import com.gildorymrp.api.plugin.essentials.Kit;
-
 public class KitManager {
 	
 	private Map<String, Kit> kits = new HashMap<String, Kit>();
-	private GildorymEssentials plugin;
+	private VaylerynEssentials plugin;
 	
-	public KitManager(GildorymEssentials plugin) {
+	public KitManager(VaylerynEssentials plugin) {
 		this.plugin = plugin;
 	}
 	

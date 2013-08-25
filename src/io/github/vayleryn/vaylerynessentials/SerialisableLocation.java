@@ -1,4 +1,4 @@
-package com.gildorymrp.essentials;
+package io.github.vayleryn.vaylerynessentials;
 
 import java.io.Serializable;
 import java.util.HashMap;

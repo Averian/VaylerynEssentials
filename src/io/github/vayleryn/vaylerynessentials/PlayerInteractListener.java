@@ -1,4 +1,7 @@
-package com.gildorymrp.essentials;
+package io.github.vayleryn.vaylerynessentials;
+
+import io.github.vayleryn.vaylerynlib.Vayleryn;
+import io.github.vayleryn.vaylerynlib.plugin.economy.EconomyPlugin;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -14,14 +17,11 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import com.gildorymrp.api.Gildorym;
-import com.gildorymrp.api.plugin.economy.GildorymEconomyPlugin;
-
 public class PlayerInteractListener implements Listener {
 	
-	private GildorymEssentials plugin;
+	private VaylerynEssentials plugin;
 	
-	public PlayerInteractListener(GildorymEssentials plugin) {
+	public PlayerInteractListener(VaylerynEssentials plugin) {
 		this.plugin = plugin;
 	}
 	
@@ -39,17 +39,18 @@ public class PlayerInteractListener implements Listener {
 					Double y = Double.parseDouble(coords.split(",")[1]);
 					Double z = Double.parseDouble(coords.split(",")[2]);
 					Location location = new Location(world, x, y, z);
-					GildorymEconomyPlugin economyPlugin = Gildorym.getEconomyPlugin();
+					EconomyPlugin economyPlugin = Vayleryn.getEconomyPlugin();
 					Player player = event.getPlayer();
 					if (economyPlugin.getMoney(player) >= cost) {
 						economyPlugin.setMoney(player, economyPlugin.getMoney(player) - cost);
 						player.teleport(location);
 						player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 200, 0));
 					} else {
-						player.sendMessage(ChatColor.RED + "You do not have enough money to make this boat journey!");
+						player.sendMessage(plugin.getPrefix() + ChatColor.RED + "You do not have enough money to make this boat journey!");
 					}
 				}
 			}
+			// Bookshelves
 			if (event.getClickedBlock().getType() == Material.BOOKSHELF) {
 				if (!event.getPlayer().isSneaking()) {
 					if (plugin.getBookshelfInventory(event.getClickedBlock()) == null) {

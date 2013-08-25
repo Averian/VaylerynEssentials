@@ -1,8 +1,9 @@
-name: GildorymEssentials
+name: VaylerynEssentials
 author: Lucariatias
-version: 1.0.0
-main: com.gildorymrp.essentials.GildorymEssentials
+version: 0.0.1
+main: io.github.vayleryn.vaylerynessentials.VaylerynEssentials
+depend: [VaylerynLib]
 permissions:
-    gildorym.essentials.boatsigns.create:
+    vayleryn.essentials.boatsigns.create:
         description: Allows you to create boat signs
         default: op
