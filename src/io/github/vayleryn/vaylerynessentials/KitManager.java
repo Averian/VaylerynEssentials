@@ -43,18 +43,20 @@ public class KitManager {
 	
 	public void load() {
 		File kitFile = new File(plugin.getDataFolder().getPath() + File.separator + "kits.yml");
-		YamlConfiguration kitConfig = new YamlConfiguration();
-		try {
-			kitConfig.load(kitFile);
-		} catch (FileNotFoundException exception) {
-			exception.printStackTrace();
-		} catch (IOException exception) {
-			exception.printStackTrace();
-		} catch (InvalidConfigurationException exception) {
-			exception.printStackTrace();
-		}
-		for (String kitName : kitConfig.getKeys(false)) {
-			kits.put(kitName, (Kit) kitConfig.get(kitName));
+		if (kitFile.exists()) {
+			YamlConfiguration kitConfig = new YamlConfiguration();
+			try {
+				kitConfig.load(kitFile);
+			} catch (FileNotFoundException exception) {
+				exception.printStackTrace();
+			} catch (IOException exception) {
+				exception.printStackTrace();
+			} catch (InvalidConfigurationException exception) {
+				exception.printStackTrace();
+			}
+			for (String kitName : kitConfig.getKeys(false)) {
+				kits.put(kitName, (Kit) kitConfig.get(kitName));
+			}
 		}
 	}
 	
