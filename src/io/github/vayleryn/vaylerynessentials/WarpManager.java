@@ -42,18 +42,20 @@ public class WarpManager {
 	
 	public void load() {
 		File warpFile = new File(plugin.getDataFolder().getPath() + File.separator + "warps.yml");
-		YamlConfiguration warpConfig = new YamlConfiguration();
-		try {
-			warpConfig.load(warpFile);
-		} catch (FileNotFoundException exception) {
-			exception.printStackTrace();
-		} catch (IOException exception) {
-			exception.printStackTrace();
-		} catch (InvalidConfigurationException exception) {
-			exception.printStackTrace();
-		}
-		for (String warpName : warpConfig.getKeys(false)) {
-			warps.put(warpName, ((SerialisableLocation) warpConfig.get(warpName)).toLocation());
+		if (warpFile.exists()) {
+			YamlConfiguration warpConfig = new YamlConfiguration();
+			try {
+				warpConfig.load(warpFile);
+			} catch (FileNotFoundException exception) {
+				exception.printStackTrace();
+			} catch (IOException exception) {
+				exception.printStackTrace();
+			} catch (InvalidConfigurationException exception) {
+				exception.printStackTrace();
+			}
+			for (String warpName : warpConfig.getKeys(false)) {
+				warps.put(warpName, ((SerialisableLocation) warpConfig.get(warpName)).toLocation());
+			}
 		}
 	}
 	
