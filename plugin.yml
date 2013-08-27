@@ -1,6 +1,7 @@
-name: VaylerynEssentials
+name: ${project.name}
 author: Lucariatias
-version: 0.0.1
+version: ${project.version}
+description: ${project.description}
 main: io.github.vayleryn.vaylerynessentials.VaylerynEssentials
 depend: [VaylerynLib]
 permissions:
