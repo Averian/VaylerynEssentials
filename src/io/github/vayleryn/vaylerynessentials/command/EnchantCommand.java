@@ -52,6 +52,8 @@ public class EnchantCommand implements CommandExecutor {
 								sender.sendMessage(plugin.getPrefix() + ChatColor.RED + "That enchantment does not exist.");
 							}
 						}
+					} else {
+						sender.sendMessage(plugin.getPrefix() + ChatColor.RED + "Usage: /enchant [enchantment] [level]");
 					}
 				} else {
 					sender.sendMessage(plugin.getPrefix() + ChatColor.RED + "You must be holding something to enchant it.");
