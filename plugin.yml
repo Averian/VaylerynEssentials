@@ -8,6 +8,9 @@ commands:
     enchant:
         description: Enchants the item in your hand
         usage: /<command> [enchantment] [level]
+    itemmeta:
+        description: Edits the item meta of the item in your hand
+        usage: /<command> [setname|addlore|removelore] [name|lore]
 permissions:
     vayleryn.essentials.boatsigns.create:
         description: Allows you to create boat signs
@@ -17,4 +20,7 @@ permissions:
         default: op
     vayleryn.essentials.command.enchant.unsafe:
         description: Allows you to add "unsafe" enchantments when enchanting by command
+        default: op
+    vayleryn.essentials.command.itemmeta:
+        description: Allows you to modify item meta
         default: op
