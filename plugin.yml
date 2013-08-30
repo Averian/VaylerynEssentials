@@ -4,7 +4,17 @@ version: ${project.version}
 description: ${project.description}
 main: io.github.vayleryn.vaylerynessentials.VaylerynEssentials
 depend: [VaylerynLib]
+commands:
+    enchant:
+        description: Enchants the item in your hand
+        usage: /<command> [enchantment] [level]
 permissions:
     vayleryn.essentials.boatsigns.create:
         description: Allows you to create boat signs
+        default: op
+    vayleryn.essentials.command.enchant:
+        description: Allows you to enchant items by command
+        default: op
+    vayleryn.essentials.command.enchant.unsafe:
+        description: Allows you to add "unsafe" enchantments when enchanting by command
         default: op

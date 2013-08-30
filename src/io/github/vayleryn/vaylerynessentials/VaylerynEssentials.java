@@ -1,5 +1,6 @@
 package io.github.vayleryn.vaylerynessentials;
 
+import io.github.vayleryn.vaylerynessentials.command.EnchantCommand;
 import io.github.vayleryn.vaylerynlib.Vayleryn;
 import io.github.vayleryn.vaylerynlib.plugin.essentials.EssentialsPlugin;
 import io.github.vayleryn.vaylerynlib.plugin.essentials.Kit;
@@ -25,6 +26,7 @@ public class VaylerynEssentials extends JavaPlugin implements EssentialsPlugin {
 		Vayleryn.registerEssentialsPlugin(this);
 		ConfigurationSerialization.registerClass(SerialisableLocation.class);
 		this.registerListeners(new PlayerInteractListener(this), new SignChangeListener(this), new BlockBreakListener(this));
+		this.registerCommands();
 		warpManager.load();
 		kitManager.load();
 		bookshelfManager.load();
@@ -41,6 +43,10 @@ public class VaylerynEssentials extends JavaPlugin implements EssentialsPlugin {
 		for (Listener listener : listeners) {
 			this.getServer().getPluginManager().registerEvents(listener, this);
 		}
+	}
+	
+	private void registerCommands() {
+		this.getCommand("enchant").setExecutor(new EnchantCommand(this));
 	}
 	
 	@Override
