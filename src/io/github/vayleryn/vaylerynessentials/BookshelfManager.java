@@ -1,6 +1,7 @@
 package io.github.vayleryn.vaylerynessentials;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -9,6 +10,7 @@ import java.util.Map;
 
 import org.bukkit.Material;
 import org.bukkit.block.Block;
+import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -66,13 +68,26 @@ public class BookshelfManager {
 				for (File xDirectory : worldDirectory.listFiles()) {
 					for (File yDirectory : xDirectory.listFiles()) {
 						for (File zDirectory : yDirectory.listFiles()) {
-							Inventory inventory = plugin.getServer().createInventory(null, 9, "Bookshelf");
-							for (ItemStack itemStack : (List<ItemStack>) plugin.getConfig().get("contents")) {
-								if (itemStack != null) {
-									inventory.addItem(itemStack);
+							File bookshelfFile = new File(bookshelfDirectory.getPath() + File.separator + worldDirectory + File.separator + xDirectory + File.separator + yDirectory + File.separator + zDirectory);
+							if (bookshelfFile.exists()) {
+								try {
+									YamlConfiguration bookshelfConfig = new YamlConfiguration();
+									bookshelfConfig.load(bookshelfFile);
+									Inventory inventory = plugin.getServer().createInventory(null, 9, "Bookshelf");
+									for (ItemStack itemStack : (List<ItemStack>) bookshelfConfig.get("contents")) {
+										if (itemStack != null) {
+											inventory.addItem(itemStack);
+										}
+									}
+									bookshelfInventories.put(plugin.getServer().getWorld(worldDirectory.getName()).getBlockAt(Integer.parseInt(xDirectory.getName()), Integer.parseInt(yDirectory.getName()), Integer.parseInt(zDirectory.getName())), inventory);
+								} catch (FileNotFoundException exception) {
+									exception.printStackTrace();
+								} catch (IOException exception) {
+									exception.printStackTrace();
+								} catch (InvalidConfigurationException exception) {
+									exception.printStackTrace();
 								}
 							}
-							bookshelfInventories.put(plugin.getServer().getWorld(worldDirectory.getName()).getBlockAt(Integer.parseInt(xDirectory.getName()), Integer.parseInt(yDirectory.getName()), Integer.parseInt(zDirectory.getName())), inventory);
 						}
 					}
 				}
