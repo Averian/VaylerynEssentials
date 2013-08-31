@@ -68,7 +68,7 @@ public class BookshelfManager {
 				for (File xDirectory : worldDirectory.listFiles()) {
 					for (File yDirectory : xDirectory.listFiles()) {
 						for (File zDirectory : yDirectory.listFiles()) {
-							File bookshelfFile = new File(bookshelfDirectory.getPath() + File.separator + worldDirectory + File.separator + xDirectory + File.separator + yDirectory + File.separator + zDirectory);
+							File bookshelfFile = new File(zDirectory.getPath() + File.separator + "bookshelf.yml");
 							if (bookshelfFile.exists()) {
 								try {
 									YamlConfiguration bookshelfConfig = new YamlConfiguration();
