@@ -56,7 +56,6 @@ public class BookshelfManager {
 				exception.printStackTrace();
 			}
 		}
-		plugin.saveConfig();
 	}
 	
 	@SuppressWarnings("unchecked")
