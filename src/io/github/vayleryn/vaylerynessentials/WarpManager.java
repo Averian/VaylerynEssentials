@@ -1,5 +1,7 @@
 package io.github.vayleryn.vaylerynessentials;
 
+import io.github.vayleryn.vaylerynlib.util.serialisation.SerialisableLocation;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
