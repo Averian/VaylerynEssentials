@@ -16,7 +16,9 @@ public class KitImpl implements Kit, ConfigurationSerializable {
 	
 	@Override
 	public void give(Player player) {
-		player.getInventory().addItem((ItemStack[]) items.toArray());
+		for (ItemStack item : items) {
+			player.getInventory().addItem(item);
+		}
 	}
 
 	@Override
