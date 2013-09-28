@@ -17,6 +17,9 @@ commands:
     itemmeta:
         description: Edits the item meta of the item in your hand
         usage: /<command> [setname|addlore|removelore] [name|lore]
+    kit:
+        description: Claims a kit
+        usage: /<command> (kit)
     setspawn:
         description: Sets the worlds spawn location
         usage: /<command>
@@ -41,6 +44,9 @@ permissions:
         default: op
     vayleryn.essentials.command.itemmeta:
         description: Allows you to modify item meta
+        default: op
+    vayleryn.essentials.command.kit:
+        description: Allows you to claim kits
         default: op
     vayleryn.essentials.command.setspawn:
         description: Allows you to set the spawn

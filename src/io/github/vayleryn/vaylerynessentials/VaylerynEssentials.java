@@ -55,6 +55,7 @@ public class VaylerynEssentials extends JavaPlugin implements EssentialsPlugin {
 		this.getCommand("feed").setExecutor(new FeedCommand(this));
 		this.getCommand("heal").setExecutor(new HealCommand(this));
 		this.getCommand("itemmeta").setExecutor(new ItemMetaCommand(this));
+		this.getCommand("kit").setExecutor(new KitCommand(this));
 		this.getCommand("setspawn").setExecutor(new SetSpawnCommand(this));
 		this.getCommand("spawn").setExecutor(new SpawnCommand(this));
 	}
