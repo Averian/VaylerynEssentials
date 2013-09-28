@@ -11,6 +11,9 @@ commands:
     feed:
         description: Feeds a player
         usage: /<command> (player)
+    fly:
+        description: Allows a player to fly
+        usage: /<command> (player)
     heal:
         description: Heals a player
         usage: /<command> (player)
@@ -44,6 +47,9 @@ permissions:
         default: op
     vayleryn.essentials.command.feed:
         description: Allows you to feed players
+        default: op
+    vayleryn.essentials.command.fly:
+        description: Allows you to fly
         default: op
     vayleryn.essentials.command.heal:
         description: Allows you to heal players
