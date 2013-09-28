@@ -4,6 +4,7 @@ import io.github.vayleryn.vaylerynessentials.command.EnchantCommand;
 import io.github.vayleryn.vaylerynessentials.command.FeedCommand;
 import io.github.vayleryn.vaylerynessentials.command.HealCommand;
 import io.github.vayleryn.vaylerynessentials.command.ItemMetaCommand;
+import io.github.vayleryn.vaylerynessentials.command.KitCommand;
 import io.github.vayleryn.vaylerynessentials.command.SetSpawnCommand;
 import io.github.vayleryn.vaylerynessentials.command.SetWarpCommand;
 import io.github.vayleryn.vaylerynessentials.command.SpawnCommand;
