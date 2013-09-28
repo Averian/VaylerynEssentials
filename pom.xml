@@ -7,24 +7,15 @@
   <description>Essential commands and features</description>
   <repositories>
     <repository>
-      <id>bukkit-repo</id>
-      <url>http://repo.bukkit.org/content/groups/public/</url>
-    </repository>
-    <repository>
       <id>vaylerynlib-repo</id>
       <url>https://raw.github.com/Vayleryn/VaylerynLib/mvn-repo/</url>
     </repository>
   </repositories>
   <dependencies>
     <dependency>
-      <groupId>org.bukkit</groupId>
-      <artifactId>bukkit</artifactId>
-      <version>1.6.2-R0.1</version>
-    </dependency>
-    <dependency>
       <groupId>io.github.vayleryn</groupId>
       <artifactId>vaylerynlib</artifactId>
-      <version>0.1.1</version>
+      <version>0.1.2</version>
     </dependency>
   </dependencies>
   <build>
