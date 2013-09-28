@@ -1,6 +1,7 @@
 package io.github.vayleryn.vaylerynessentials;
 
 import io.github.vayleryn.vaylerynessentials.command.EnchantCommand;
+import io.github.vayleryn.vaylerynessentials.command.FeedCommand;
 import io.github.vayleryn.vaylerynessentials.command.ItemMetaCommand;
 import io.github.vayleryn.vaylerynessentials.command.SetSpawnCommand;
 import io.github.vayleryn.vaylerynessentials.command.SpawnCommand;

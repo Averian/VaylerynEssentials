@@ -1,4 +1,6 @@
-package io.github.vayleryn.vaylerynessentials;
+package io.github.vayleryn.vaylerynessentials.command;
+
+import io.github.vayleryn.vaylerynessentials.VaylerynEssentials;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
