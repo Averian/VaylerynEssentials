@@ -8,6 +8,9 @@ commands:
     enchant:
         description: Enchants the item in your hand
         usage: /<command> [enchantment] [level]
+    feed:
+        description: Feeds a player
+        usage: /<command> (player)
     itemmeta:
         description: Edits the item meta of the item in your hand
         usage: /<command> [setname|addlore|removelore] [name|lore]
@@ -26,6 +29,9 @@ permissions:
         default: op
     vayleryn.essentials.command.enchant.unsafe:
         description: Allows you to add "unsafe" enchantments when enchanting by command
+        default: op
+    vayleryn.essentials.command.feed:
+        description: Allows you to feed players
         default: op
     vayleryn.essentials.command.itemmeta:
         description: Allows you to modify item meta
