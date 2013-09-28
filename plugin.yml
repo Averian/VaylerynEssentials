@@ -35,6 +35,9 @@ commands:
     spawn:
         description: Teleports you to your worlds spawn
         usage: /<command>
+    unsign:
+        description: Unsigns written books
+        usage: /<command>
     warp:
         description: Warps to a location
         usage: /<command> [warp]
@@ -75,6 +78,9 @@ permissions:
     vayleryn.essentials.command.spawn:
         description: Allows you to teleport to the spawn
         default: op
+    vayleryn.essentials.command.unsign:
+        description: Allows you to unsign books
+        default: true
     vayleryn.essentials.command.warp:
         description: Allows you to use warps
         default: op
