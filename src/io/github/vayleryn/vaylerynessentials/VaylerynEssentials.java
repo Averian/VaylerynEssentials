@@ -2,6 +2,8 @@ package io.github.vayleryn.vaylerynessentials;
 
 import io.github.vayleryn.vaylerynessentials.command.EnchantCommand;
 import io.github.vayleryn.vaylerynessentials.command.ItemMetaCommand;
+import io.github.vayleryn.vaylerynessentials.command.SetSpawnCommand;
+import io.github.vayleryn.vaylerynessentials.command.SpawnCommand;
 import io.github.vayleryn.vaylerynlib.Vayleryn;
 import io.github.vayleryn.vaylerynlib.plugin.essentials.EssentialsPlugin;
 import io.github.vayleryn.vaylerynlib.plugin.essentials.Kit;
@@ -49,6 +51,8 @@ public class VaylerynEssentials extends JavaPlugin implements EssentialsPlugin {
 	private void registerCommands() {
 		this.getCommand("enchant").setExecutor(new EnchantCommand(this));
 		this.getCommand("itemmeta").setExecutor(new ItemMetaCommand(this));
+		this.getCommand("setspawn").setExecutor(new SetSpawnCommand(this));
+		this.getCommand("spawn").setExecutor(new SpawnCommand(this));
 	}
 	
 	@Override

@@ -11,6 +11,12 @@ commands:
     itemmeta:
         description: Edits the item meta of the item in your hand
         usage: /<command> [setname|addlore|removelore] [name|lore]
+    setspawn:
+        description: Sets the worlds spawn location
+        usage: /<command>
+    spawn:
+        description: Teleports you to your worlds spawn
+        usage: /<command>
 permissions:
     vayleryn.essentials.boatsigns.create:
         description: Allows you to create boat signs
@@ -23,4 +29,10 @@ permissions:
         default: op
     vayleryn.essentials.command.itemmeta:
         description: Allows you to modify item meta
+        default: op
+    vayleryn.essentials.command.setspawn:
+        description: Allows you to set the spawn
+        default: op
+    vayleryn.essentials.command.spawn:
+        description: Allows you to teleport to the spawn
         default: op
