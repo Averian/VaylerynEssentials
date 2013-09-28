@@ -5,7 +5,9 @@ import io.github.vayleryn.vaylerynessentials.command.FeedCommand;
 import io.github.vayleryn.vaylerynessentials.command.HealCommand;
 import io.github.vayleryn.vaylerynessentials.command.ItemMetaCommand;
 import io.github.vayleryn.vaylerynessentials.command.SetSpawnCommand;
+import io.github.vayleryn.vaylerynessentials.command.SetWarpCommand;
 import io.github.vayleryn.vaylerynessentials.command.SpawnCommand;
+import io.github.vayleryn.vaylerynessentials.command.WarpCommand;
 import io.github.vayleryn.vaylerynlib.Vayleryn;
 import io.github.vayleryn.vaylerynlib.plugin.essentials.EssentialsPlugin;
 import io.github.vayleryn.vaylerynlib.plugin.essentials.Kit;
@@ -57,7 +59,9 @@ public class VaylerynEssentials extends JavaPlugin implements EssentialsPlugin {
 		this.getCommand("itemmeta").setExecutor(new ItemMetaCommand(this));
 		this.getCommand("kit").setExecutor(new KitCommand(this));
 		this.getCommand("setspawn").setExecutor(new SetSpawnCommand(this));
+		this.getCommand("setwarp").setExecutor(new SetWarpCommand(this));
 		this.getCommand("spawn").setExecutor(new SpawnCommand(this));
+		this.getCommand("warp").setExecutor(new WarpCommand(this));
 	}
 	
 	@Override

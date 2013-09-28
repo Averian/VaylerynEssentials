@@ -23,9 +23,15 @@ commands:
     setspawn:
         description: Sets the worlds spawn location
         usage: /<command>
+    setwarp:
+        description: Sets a warp at your current location
+        usage: /<command> [name]
     spawn:
         description: Teleports you to your worlds spawn
         usage: /<command>
+    warp:
+        description: Warps to a location
+        usage: /<command> [warp]
 permissions:
     vayleryn.essentials.boatsigns.create:
         description: Allows you to create boat signs
@@ -51,6 +57,12 @@ permissions:
     vayleryn.essentials.command.setspawn:
         description: Allows you to set the spawn
         default: op
+    vayleryn.essentials.command.setwarp:
+        description: Allows you to set a warp
+        default: op
     vayleryn.essentials.command.spawn:
         description: Allows you to teleport to the spawn
+        default: op
+    vayleryn.essentials.command.warp:
+        description: Allows you to use warps
         default: op
