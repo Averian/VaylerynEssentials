@@ -17,6 +17,9 @@ commands:
     heal:
         description: Heals a player
         usage: /<command> (player)
+    inventory:
+        description: Opens someone's inventory
+        usage: /<command> [player]
     itemmeta:
         description: Edits the item meta of the item in your hand
         usage: /<command> [setname|addlore|removelore] [name|lore]
@@ -65,6 +68,9 @@ permissions:
         default: op
     vayleryn.essentials.command.heal:
         description: Allows you to heal players
+        default: op
+    vayleryn.essentials.command.inventory:
+        description: Allows you to open other people's inventories
         default: op
     vayleryn.essentials.command.itemmeta:
         description: Allows you to modify item meta

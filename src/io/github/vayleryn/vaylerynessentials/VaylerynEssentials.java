@@ -4,6 +4,7 @@ import io.github.vayleryn.vaylerynessentials.command.EnchantCommand;
 import io.github.vayleryn.vaylerynessentials.command.FeedCommand;
 import io.github.vayleryn.vaylerynessentials.command.FlyCommand;
 import io.github.vayleryn.vaylerynessentials.command.HealCommand;
+import io.github.vayleryn.vaylerynessentials.command.InventoryCommand;
 import io.github.vayleryn.vaylerynessentials.command.ItemMetaCommand;
 import io.github.vayleryn.vaylerynessentials.command.KitCommand;
 import io.github.vayleryn.vaylerynessentials.command.MsgCommand;
@@ -63,6 +64,7 @@ public class VaylerynEssentials extends JavaPlugin implements EssentialsPlugin {
 		this.getCommand("feed").setExecutor(new FeedCommand(this));
 		this.getCommand("fly").setExecutor(new FlyCommand(this));
 		this.getCommand("heal").setExecutor(new HealCommand(this));
+		this.getCommand("inventory").setExecutor(new InventoryCommand(this));
 		this.getCommand("itemmeta").setExecutor(new ItemMetaCommand(this));
 		this.getCommand("kit").setExecutor(new KitCommand(this));
 		this.getCommand("msg").setExecutor(new MsgCommand(this));
