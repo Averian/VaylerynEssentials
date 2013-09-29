@@ -47,6 +47,9 @@ commands:
     spawnmob:
         description: Spawns mobs at your location
         usage: /<command> [entity type] [amount]
+    sudo:
+        description: Runs a command with elevated priveledges
+        usage: /<command> [command]
     unsign:
         description: Unsigns written books
         usage: /<command>
@@ -101,6 +104,9 @@ permissions:
         default: op
     vayleryn.essentials.command.spawnmob:
         description: Allows you to spawn mobs
+        default: op
+    vayleryn.essentials.command.sudo:
+        description: Allows you to run a command with elevated priveledges
         default: op
     vayleryn.essentials.command.unsign:
         description: Allows you to unsign books
