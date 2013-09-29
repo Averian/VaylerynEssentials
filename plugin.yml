@@ -32,6 +32,9 @@ commands:
     repair:
         description: Repairs the item in your hand
         usage: /<command>
+    runas:
+        description: Runs a command as another player
+        usage: /<command> [player] [command]
     setspawn:
         description: Sets the worlds spawn location
         usage: /<command>
@@ -89,6 +92,9 @@ permissions:
         default: true
     vayleryn.essentials.command.repair:
         description: Allows you to repair items
+        default: op
+    vayleryn.essentials.command.runas:
+        description: Allows you to run a command as another player
         default: op
     vayleryn.essentials.command.setspawn:
         description: Allows you to set the spawn
