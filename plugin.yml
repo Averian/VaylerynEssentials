@@ -44,6 +44,9 @@ commands:
     spawner:
         description: Sets the entity a spawner will spawn
         usage: /<command> [entity type]
+    spawnmob:
+        description: Spawns mobs at your location
+        usage: /<command> [entity type] [amount]
     unsign:
         description: Unsigns written books
         usage: /<command>
@@ -95,6 +98,9 @@ permissions:
         default: op
     vayleryn.essentials.command.spawner:
         description: Allows you to change the entity spawned by a spawner
+        default: op
+    vayleryn.essentials.command.spawnmob:
+        description: Allows you to spawn mobs
         default: op
     vayleryn.essentials.command.unsign:
         description: Allows you to unsign books
