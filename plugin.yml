@@ -38,6 +38,9 @@ commands:
     spawn:
         description: Teleports you to your worlds spawn
         usage: /<command>
+    spawner:
+        description: Sets the entity a spawner will spawn
+        usage: /<command> [entity type]
     unsign:
         description: Unsigns written books
         usage: /<command>
@@ -83,6 +86,9 @@ permissions:
         default: op
     vayleryn.essentials.command.spawn:
         description: Allows you to teleport to the spawn
+        default: op
+    vayleryn.essentials.command.spawner:
+        description: Allows you to change the entity spawned by a spawner
         default: op
     vayleryn.essentials.command.unsign:
         description: Allows you to unsign books
