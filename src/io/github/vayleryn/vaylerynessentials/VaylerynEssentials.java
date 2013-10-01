@@ -22,11 +22,17 @@ import io.github.vayleryn.vaylerynlib.Vayleryn;
 import io.github.vayleryn.vaylerynlib.plugin.essentials.EssentialsPlugin;
 import io.github.vayleryn.vaylerynlib.plugin.essentials.Kit;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Map;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
+import org.bukkit.configuration.InvalidConfigurationException;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.configuration.serialization.ConfigurationSerialization;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
@@ -37,11 +43,14 @@ public class VaylerynEssentials extends JavaPlugin implements EssentialsPlugin {
 	private WarpManager warpManager = new WarpManager(this);
 	private KitManager kitManager = new KitManager(this);
 	private BookshelfManager bookshelfManager = new BookshelfManager(this);
+	private PortcullisManager portcullisManager = new PortcullisManager(this);
+	private File portcullisConfigFile;
 	
 	@Override
 	public void onEnable() {
 		Vayleryn.registerEssentialsPlugin(this);
 		ConfigurationSerialization.registerClass(KitImpl.class);
+		saveDefaultPortcullisConfig();
 		this.registerListeners(new PlayerInteractListener(this), new SignChangeListener(this), new BlockBreakListener(this), new PlayerJoinListener(this));
 		this.registerCommands();
 		warpManager.load();
@@ -119,5 +128,32 @@ public class VaylerynEssentials extends JavaPlugin implements EssentialsPlugin {
 	public Map<Block, Inventory> getBookshelfInventories() {
 		return bookshelfManager.getBookshelfInventories();
 	}
+	
+	public PortcullisManager getPortcullisManager() {
+		return portcullisManager;
+	}
+
+	public FileConfiguration getPortcullisConfig() {
+		YamlConfiguration portcullisConfig = new YamlConfiguration();
+		try {
+			portcullisConfig.load(getDataFolder() + File.separator + "portcullis.yml");
+		} catch (FileNotFoundException exception) {
+			exception.printStackTrace();
+		} catch (IOException exception) {
+			exception.printStackTrace();
+		} catch (InvalidConfigurationException exception) {
+			exception.printStackTrace();
+		}
+		return portcullisConfig;
+	}
+	
+    public void saveDefaultPortcullisConfig() {
+        if (portcullisConfigFile == null) {
+            portcullisConfigFile = new File(getDataFolder(), "portcullis.yml");
+        }
+        if (!portcullisConfigFile.exists()) {            
+             saveResource("portcullis.yml", false);
+         }
+    }
 	
 }

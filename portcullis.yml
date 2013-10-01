@@ -1,0 +1,6 @@
+entityMoving: true
+hoistingDelay: 40
+droppingDelay: 10
+portcullisMaterials: [85, 101, 113]
+allowFloating: true
+powerBlocks: []

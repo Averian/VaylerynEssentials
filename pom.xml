@@ -27,6 +27,7 @@
         <filtering>true</filtering>
         <includes>
           <include>**/plugin.yml</include>
+          <include>**/portcullis.yml</include>
         </includes>
       </resource>
     </resources>
