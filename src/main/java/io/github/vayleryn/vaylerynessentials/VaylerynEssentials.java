@@ -50,7 +50,6 @@ public class VaylerynEssentials extends JavaPlugin implements EssentialsPlugin {
 	public void onEnable() {
 		Vayleryn.registerEssentialsPlugin(this);
 		ConfigurationSerialization.registerClass(KitImpl.class);
-		saveDefaultPortcullisConfig();
 		this.registerListeners(new PlayerInteractListener(this), new SignChangeListener(this), new BlockBreakListener(this), new PlayerJoinListener(this));
 		this.registerCommands();
 		warpManager.load();

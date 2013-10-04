@@ -21,6 +21,7 @@ public class PortcullisManager {
 	private static final boolean DEFAULT_ALLOW_FLOATING = true;
 	
 	public PortcullisManager(VaylerynEssentials plugin) {
+		plugin.saveDefaultPortcullisConfig();
 		FileConfiguration config = plugin.getPortcullisConfig();
 		entityMovingEnabled = config.getBoolean("entityMoving");
 		hoistingDelay = config.getInt("hoistingDelay");
