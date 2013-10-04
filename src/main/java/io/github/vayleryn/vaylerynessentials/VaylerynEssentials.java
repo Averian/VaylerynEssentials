@@ -43,8 +43,7 @@ public class VaylerynEssentials extends JavaPlugin implements EssentialsPlugin {
 	private WarpManager warpManager;
 	private KitManager kitManager;
 	private BookshelfManager bookshelfManager;
-	private PortcullisManager portcullisManager;;
-	private File portcullisConfigFile;
+	private PortcullisManager portcullisManager;
 	
 	@Override
 	public void onEnable() {
@@ -151,12 +150,7 @@ public class VaylerynEssentials extends JavaPlugin implements EssentialsPlugin {
 	}
 	
     public void saveDefaultPortcullisConfig() {
-        if (portcullisConfigFile == null) {
-            portcullisConfigFile = new File(getDataFolder(), "portcullis.yml");
-        }
-        if (!portcullisConfigFile.exists()) {            
-             saveResource("portcullis.yml", false);
-         }
+    	saveResource("portcullis.yml", false);
     }
 	
 }
