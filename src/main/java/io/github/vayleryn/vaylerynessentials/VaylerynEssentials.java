@@ -40,10 +40,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class VaylerynEssentials extends JavaPlugin implements EssentialsPlugin {
 	
-	private WarpManager warpManager = new WarpManager(this);
-	private KitManager kitManager = new KitManager(this);
-	private BookshelfManager bookshelfManager = new BookshelfManager(this);
-	private PortcullisManager portcullisManager = new PortcullisManager(this);
+	private WarpManager warpManager;
+	private KitManager kitManager;
+	private BookshelfManager bookshelfManager;
+	private PortcullisManager portcullisManager;;
 	private File portcullisConfigFile;
 	
 	@Override
@@ -52,9 +52,13 @@ public class VaylerynEssentials extends JavaPlugin implements EssentialsPlugin {
 		ConfigurationSerialization.registerClass(KitImpl.class);
 		this.registerListeners(new PlayerInteractListener(this), new SignChangeListener(this), new BlockBreakListener(this), new PlayerJoinListener(this));
 		this.registerCommands();
+		warpManager = new WarpManager(this);
 		warpManager.load();
+		kitManager = new KitManager(this);
 		kitManager.load();
+		bookshelfManager = new BookshelfManager(this);
 		bookshelfManager.load();
+		portcullisManager = new PortcullisManager(this);
 	}
 	
 	@Override
