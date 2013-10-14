@@ -29,6 +29,8 @@ import io.github.vayleryn.vaylerynessentials.command.WarpCommand;
 import io.github.vayleryn.vaylerynessentials.kit.KitImpl;
 import io.github.vayleryn.vaylerynessentials.kit.KitManager;
 import io.github.vayleryn.vaylerynessentials.portcullis.PortcullisBlockRedstoneListener;
+import io.github.vayleryn.vaylerynessentials.portcullis.PortcullisPlayerInteractListener;
+import io.github.vayleryn.vaylerynessentials.portcullis.PortcullisSignChangeListener;
 import io.github.vayleryn.vaylerynessentials.warp.WarpManager;
 import io.github.vayleryn.vaylerynlib.Vayleryn;
 import io.github.vayleryn.vaylerynlib.plugin.essentials.EssentialsPlugin;
@@ -63,7 +65,7 @@ public class VaylerynEssentials extends JavaPlugin implements EssentialsPlugin {
 		this.registerListeners(new BoatPlayerInteractListener(this), new BoatSignChangeListener(this),
 				new BookshelfBlockBreakListener(this), new BookshelfPlayerInteractListener(this),
 				new PlayerJoinListener(this),
-				new PortcullisBlockRedstoneListener());
+				new PortcullisBlockRedstoneListener(), new PortcullisPlayerInteractListener(), new PortcullisSignChangeListener(this));
 		this.registerCommands();
 		warpManager = new WarpManager(this);
 		warpManager.load();

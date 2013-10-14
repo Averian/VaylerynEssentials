@@ -75,6 +75,9 @@ permissions:
     vayleryn.essentials.boatsigns.create:
         description: Allows you to create boat signs
         default: op
+    vayleryn.essentials.portcullissigns.create:
+        description: Allows you to create portcullis signs
+        default: op
     vayleryn.essentials.command.enchant:
         description: Allows you to enchant items by command
         default: op

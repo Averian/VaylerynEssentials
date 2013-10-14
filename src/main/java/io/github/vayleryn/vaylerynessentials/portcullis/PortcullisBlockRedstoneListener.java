@@ -1,60 +1,41 @@
 package io.github.vayleryn.vaylerynessentials.portcullis;
 
-import java.util.HashSet;
-import java.util.Set;
-
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.block.Block;
-import org.bukkit.block.BlockFace;
+import org.bukkit.World;
+import org.bukkit.block.Sign;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockRedstoneEvent;
 
 public class PortcullisBlockRedstoneListener implements Listener {
 	
-	private Set<Material> portcullisMaterials = new HashSet<Material>();
-	
-	public PortcullisBlockRedstoneListener() {
-		portcullisMaterials.add(Material.FENCE);
-		portcullisMaterials.add(Material.IRON_FENCE);
-		portcullisMaterials.add(Material.NETHER_FENCE);
-	}
-	
 	@EventHandler
 	public void onBlockRedstone(BlockRedstoneEvent event) {
-		for (BlockFace face : BlockFace.values()) {
-			if (portcullisMaterials.contains(event.getBlock().getRelative(face).getType())) {
-				if (event.getNewCurrent() > event.getOldCurrent()) {
-					movePortcullis(event.getBlock().getRelative(face), BlockFace.UP);
-				} else {
-					movePortcullis(event.getBlock().getRelative(face), BlockFace.DOWN);
+		if (event.getBlock().getState() instanceof Sign) {
+			Sign sign = (Sign) event.getBlock().getState();
+			if (sign.getLine(0).equalsIgnoreCase(ChatColor.GRAY + "[portcullis]")) {
+				World world = Bukkit.getServer().getWorld(sign.getLine(1));
+				int x1 = Integer.parseInt(sign.getLine(2).split(",")[0]);
+				int y1 = Integer.parseInt(sign.getLine(2).split(",")[1]);
+				int z1 = Integer.parseInt(sign.getLine(2).split(",")[2]);
+				int x2 = Integer.parseInt(sign.getLine(3).split(",")[0]);
+				int y2 = Integer.parseInt(sign.getLine(3).split(",")[1]);
+				int z2 = Integer.parseInt(sign.getLine(3).split(",")[2]);
+				for (int x = Math.min(x1, x2); x <= Math.max(x1, x2); x++) {
+					for (int y = Math.min(y1, y2); y <= Math.max(y1, y2); y++) {
+						for (int z = Math.min(z1, z2); z <= Math.max(z1, z2); z++) {
+							if (world.getBlockAt(x, y, z).getType() == Material.AIR) {
+								world.getBlockAt(x, y, z).setType(Material.IRON_FENCE);
+							} else {
+								world.getBlockAt(x, y, z).setType(Material.AIR);
+							}
+						}
+					}
 				}
 			}
 		}
-		
-	}
-
-	private void movePortcullis(Block block, BlockFace face) {
-		for (Block portcullis : findBlocksInPortcullis(block)) {
-			int i = 1;
-			while ((portcullis.getRelative(face, i).getType() == Material.AIR || portcullisMaterials.contains(portcullis.getRelative(face, i).getType())) && i < 64) {
-				i++;
-			}
-			portcullis.getRelative(face, i).setType(portcullis.getType());
-		}
-	}
-
-	private Set<Block> findBlocksInPortcullis(Block block) {
-		Set<Block> blocks = new HashSet<Block>();
-		for (BlockFace face : BlockFace.values()) {
-			if (block.getRelative(face).getType() == block.getType()) {
-				if (!blocks.contains(block.getRelative(face))) {
-					blocks.add(block.getRelative(face));
-					blocks.addAll(findBlocksInPortcullis(block.getRelative(face)));
-				}
-			}
-		}
-		return blocks;
 	}
 	
 }
