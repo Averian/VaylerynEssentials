@@ -14,6 +14,12 @@ public class PortcullisBlockRedstoneListener implements Listener {
 	
 	private Set<Material> portcullisMaterials = new HashSet<Material>();
 	
+	public PortcullisBlockRedstoneListener() {
+		portcullisMaterials.add(Material.FENCE);
+		portcullisMaterials.add(Material.IRON_FENCE);
+		portcullisMaterials.add(Material.NETHER_FENCE);
+	}
+	
 	@EventHandler
 	public void onBlockRedstone(BlockRedstoneEvent event) {
 		for (BlockFace face : BlockFace.values()) {
