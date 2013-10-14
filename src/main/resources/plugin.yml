@@ -54,6 +54,10 @@ commands:
     spawnmob:
         description: Spawns mobs at your location
         usage: /<command> [entity type] [amount]
+    speed:
+        description: Sets your flyspeed
+        usage: /<command> (player) [speed]
+        aliases: [flyspeed]
     sudo:
         description: Runs a command with elevated priveledges
         usage: /<command> [command]
@@ -117,6 +121,9 @@ permissions:
         default: op
     vayleryn.essentials.command.spawnmob:
         description: Allows you to spawn mobs
+        default: op
+    vayleryn.essentials.command.speed:
+        description: Allows you to set your or someone elses flyspeed
         default: op
     vayleryn.essentials.command.sudo:
         description: Allows you to run a command with elevated priveledges

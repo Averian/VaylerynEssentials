@@ -21,6 +21,7 @@ import io.github.vayleryn.vaylerynessentials.command.SetWarpCommand;
 import io.github.vayleryn.vaylerynessentials.command.SpawnCommand;
 import io.github.vayleryn.vaylerynessentials.command.SpawnMobCommand;
 import io.github.vayleryn.vaylerynessentials.command.SpawnerCommand;
+import io.github.vayleryn.vaylerynessentials.command.SpeedCommand;
 import io.github.vayleryn.vaylerynessentials.command.SudoCommand;
 import io.github.vayleryn.vaylerynessentials.command.UnsignCommand;
 import io.github.vayleryn.vaylerynessentials.command.WarpCommand;
@@ -104,6 +105,7 @@ public class VaylerynEssentials extends JavaPlugin implements EssentialsPlugin {
 		this.getCommand("spawn").setExecutor(new SpawnCommand(this));
 		this.getCommand("spawner").setExecutor(new SpawnerCommand(this));
 		this.getCommand("spawnmob").setExecutor(new SpawnMobCommand(this));
+		this.getCommand("speed").setExecutor(new SpeedCommand(this));
 		this.getCommand("sudo").setExecutor(new SudoCommand(this));
 		this.getCommand("unsign").setExecutor(new UnsignCommand(this));
 		this.getCommand("warp").setExecutor(new WarpCommand(this));
