@@ -40,7 +40,7 @@ public class ItemCommand implements CommandExecutor {
 						if (amount > 1) {
 							sender.sendMessage(plugin.getPrefix() + ChatColor.GREEN + "Created " + amount + " " + material.toString() + "s");
 						} else {
-							sender.sendMessage(plugin.getPrefix() + ChatColor.GREEN + "Craeted a " + material.toString() + ".");
+							sender.sendMessage(plugin.getPrefix() + ChatColor.GREEN + "Created a " + material.toString() + ".");
 						}
 					} else {
 						sender.sendMessage(plugin.getPrefix() + ChatColor.RED + "Could not find that material.");
