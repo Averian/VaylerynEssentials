@@ -20,6 +20,10 @@ commands:
     inventory:
         description: Opens someone's inventory
         usage: /<command> [player]
+    item:
+        description: Spawns an item
+        usage: /<command> [material] (amount)
+        aliases: [i, giveme]
     itemmeta:
         description: Edits the item meta of the item in your hand
         usage: /<command> [setname|addlore|removelore] [name|lore]
@@ -80,6 +84,9 @@ permissions:
         default: op
     vayleryn.essentials.command.inventory:
         description: Allows you to open other people's inventories
+        default: op
+    vayleryn.essentials.command.item:
+        description: Allows the spawning of items
         default: op
     vayleryn.essentials.command.itemmeta:
         description: Allows you to modify item meta
