@@ -29,7 +29,6 @@ import io.github.vayleryn.vaylerynessentials.command.WarpCommand;
 import io.github.vayleryn.vaylerynessentials.kit.KitImpl;
 import io.github.vayleryn.vaylerynessentials.kit.KitManager;
 import io.github.vayleryn.vaylerynessentials.portcullis.PortcullisBlockRedstoneListener;
-import io.github.vayleryn.vaylerynessentials.portcullis.PortcullisManager;
 import io.github.vayleryn.vaylerynessentials.warp.WarpManager;
 import io.github.vayleryn.vaylerynlib.Vayleryn;
 import io.github.vayleryn.vaylerynlib.plugin.essentials.EssentialsPlugin;
@@ -56,7 +55,6 @@ public class VaylerynEssentials extends JavaPlugin implements EssentialsPlugin {
 	private WarpManager warpManager;
 	private KitManager kitManager;
 	private BookshelfManager bookshelfManager;
-	private PortcullisManager portcullisManager;
 	
 	@Override
 	public void onEnable() {
@@ -65,7 +63,7 @@ public class VaylerynEssentials extends JavaPlugin implements EssentialsPlugin {
 		this.registerListeners(new BoatPlayerInteractListener(this), new BoatSignChangeListener(this),
 				new BookshelfBlockBreakListener(this), new BookshelfPlayerInteractListener(this),
 				new PlayerJoinListener(this),
-				new PortcullisBlockRedstoneListener(this));
+				new PortcullisBlockRedstoneListener());
 		this.registerCommands();
 		warpManager = new WarpManager(this);
 		warpManager.load();
@@ -73,7 +71,6 @@ public class VaylerynEssentials extends JavaPlugin implements EssentialsPlugin {
 		kitManager.load();
 		bookshelfManager = new BookshelfManager(this);
 		bookshelfManager.load();
-		portcullisManager = new PortcullisManager(this);
 	}
 	
 	@Override
@@ -148,10 +145,6 @@ public class VaylerynEssentials extends JavaPlugin implements EssentialsPlugin {
 	
 	public Map<Block, Inventory> getBookshelfInventories() {
 		return bookshelfManager.getBookshelfInventories();
-	}
-	
-	public PortcullisManager getPortcullisManager() {
-		return portcullisManager;
 	}
 
 	public FileConfiguration getPortcullisConfig() {
