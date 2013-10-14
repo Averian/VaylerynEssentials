@@ -1,12 +1,12 @@
-package io.github.vayleryn.vaylerynessentials;
+package io.github.vayleryn.vaylerynessentials.boat;
 
+import io.github.vayleryn.vaylerynessentials.VaylerynEssentials;
 import io.github.vayleryn.vaylerynlib.Vayleryn;
 import io.github.vayleryn.vaylerynlib.plugin.economy.EconomyPlugin;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
@@ -17,11 +17,11 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-public class PlayerInteractListener implements Listener {
+public class BoatPlayerInteractListener implements Listener {
 	
 	private VaylerynEssentials plugin;
 	
-	public PlayerInteractListener(VaylerynEssentials plugin) {
+	public BoatPlayerInteractListener(VaylerynEssentials plugin) {
 		this.plugin = plugin;
 	}
 	
@@ -30,7 +30,6 @@ public class PlayerInteractListener implements Listener {
 		if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
 			if (event.getClickedBlock().getState() instanceof Sign) {
 				Sign sign = (Sign) event.getClickedBlock().getState();
-				// Boats
 				if (sign.getLine(0).equalsIgnoreCase(ChatColor.BLUE + "[boat]")) {
 					Integer cost = Integer.parseInt(sign.getLine(1));
 					World world = Bukkit.getServer().getWorld(sign.getLine(2));
@@ -48,16 +47,6 @@ public class PlayerInteractListener implements Listener {
 					} else {
 						player.sendMessage(plugin.getPrefix() + ChatColor.RED + "You do not have enough money to make this boat journey!");
 					}
-				}
-			}
-			// Bookshelves
-			if (event.getClickedBlock().getType() == Material.BOOKSHELF) {
-				if (!event.getPlayer().isSneaking()) {
-					if (plugin.getBookshelfInventory(event.getClickedBlock()) == null) {
-						plugin.createBookshelfInventory(event.getClickedBlock());
-					}
-					event.getPlayer().openInventory(plugin.getBookshelfInventory(event.getClickedBlock()));
-					event.setCancelled(true);
 				}
 			}
 		}

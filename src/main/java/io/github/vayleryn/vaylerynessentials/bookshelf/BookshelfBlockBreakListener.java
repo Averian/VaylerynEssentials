@@ -1,4 +1,6 @@
-package io.github.vayleryn.vaylerynessentials;
+package io.github.vayleryn.vaylerynessentials.bookshelf;
+
+import io.github.vayleryn.vaylerynessentials.VaylerynEssentials;
 
 import java.io.File;
 
@@ -7,11 +9,11 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 
-public class BlockBreakListener implements Listener {
+public class BookshelfBlockBreakListener implements Listener {
 	
 	private VaylerynEssentials plugin;
 	
-	public BlockBreakListener(VaylerynEssentials plugin) {
+	public BookshelfBlockBreakListener(VaylerynEssentials plugin) {
 		this.plugin = plugin;
 	}
 	

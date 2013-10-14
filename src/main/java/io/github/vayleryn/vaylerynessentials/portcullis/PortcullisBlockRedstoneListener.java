@@ -1,8 +1,11 @@
-package io.github.vayleryn.vaylerynessentials;
+package io.github.vayleryn.vaylerynessentials.portcullis;
+
+import io.github.vayleryn.vaylerynessentials.VaylerynEssentials;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
@@ -10,14 +13,16 @@ import org.bukkit.block.BlockFace;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+
 import static org.bukkit.block.BlockFace.*;
+
 import org.bukkit.event.block.BlockRedstoneEvent;
 
 /**
  * @author pepijn
  */
-public class BlockRedstoneListener implements Listener {
-	public BlockRedstoneListener(VaylerynEssentials plugin) {
+public class PortcullisBlockRedstoneListener implements Listener {
+	public PortcullisBlockRedstoneListener(VaylerynEssentials plugin) {
 		this.plugin = plugin;
 	}
 	

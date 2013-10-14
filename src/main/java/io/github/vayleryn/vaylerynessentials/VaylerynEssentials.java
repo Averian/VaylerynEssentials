@@ -1,5 +1,10 @@
 package io.github.vayleryn.vaylerynessentials;
 
+import io.github.vayleryn.vaylerynessentials.boat.BoatPlayerInteractListener;
+import io.github.vayleryn.vaylerynessentials.boat.BoatSignChangeListener;
+import io.github.vayleryn.vaylerynessentials.bookshelf.BookshelfBlockBreakListener;
+import io.github.vayleryn.vaylerynessentials.bookshelf.BookshelfManager;
+import io.github.vayleryn.vaylerynessentials.bookshelf.BookshelfPlayerInteractListener;
 import io.github.vayleryn.vaylerynessentials.command.EnchantCommand;
 import io.github.vayleryn.vaylerynessentials.command.FeedCommand;
 import io.github.vayleryn.vaylerynessentials.command.FlyCommand;
@@ -19,6 +24,11 @@ import io.github.vayleryn.vaylerynessentials.command.SpawnerCommand;
 import io.github.vayleryn.vaylerynessentials.command.SudoCommand;
 import io.github.vayleryn.vaylerynessentials.command.UnsignCommand;
 import io.github.vayleryn.vaylerynessentials.command.WarpCommand;
+import io.github.vayleryn.vaylerynessentials.kit.KitImpl;
+import io.github.vayleryn.vaylerynessentials.kit.KitManager;
+import io.github.vayleryn.vaylerynessentials.portcullis.PortcullisBlockRedstoneListener;
+import io.github.vayleryn.vaylerynessentials.portcullis.PortcullisManager;
+import io.github.vayleryn.vaylerynessentials.warp.WarpManager;
 import io.github.vayleryn.vaylerynlib.Vayleryn;
 import io.github.vayleryn.vaylerynlib.plugin.essentials.EssentialsPlugin;
 import io.github.vayleryn.vaylerynlib.plugin.essentials.Kit;
@@ -50,7 +60,10 @@ public class VaylerynEssentials extends JavaPlugin implements EssentialsPlugin {
 	public void onEnable() {
 		Vayleryn.registerEssentialsPlugin(this);
 		ConfigurationSerialization.registerClass(KitImpl.class);
-		this.registerListeners(new PlayerInteractListener(this), new SignChangeListener(this), new BlockBreakListener(this), new PlayerJoinListener(this), new BlockRedstoneListener(this));
+		this.registerListeners(new BoatPlayerInteractListener(this), new BoatSignChangeListener(this),
+				new BookshelfBlockBreakListener(this), new BookshelfPlayerInteractListener(this),
+				new PlayerJoinListener(this),
+				new PortcullisBlockRedstoneListener(this));
 		this.registerCommands();
 		warpManager = new WarpManager(this);
 		warpManager.load();

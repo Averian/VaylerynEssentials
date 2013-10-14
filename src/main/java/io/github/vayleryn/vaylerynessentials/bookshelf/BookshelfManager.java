@@ -1,4 +1,6 @@
-package io.github.vayleryn.vaylerynessentials;
+package io.github.vayleryn.vaylerynessentials.bookshelf;
+
+import io.github.vayleryn.vaylerynessentials.VaylerynEssentials;
 
 import java.io.File;
 import java.io.FileNotFoundException;

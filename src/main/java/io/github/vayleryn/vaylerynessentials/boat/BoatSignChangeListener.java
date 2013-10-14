@@ -1,15 +1,17 @@
-package io.github.vayleryn.vaylerynessentials;
+package io.github.vayleryn.vaylerynessentials.boat;
+
+import io.github.vayleryn.vaylerynessentials.VaylerynEssentials;
 
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.SignChangeEvent;
 
-public class SignChangeListener implements Listener {
+public class BoatSignChangeListener implements Listener {
 	
 	private VaylerynEssentials plugin;
 	
-	public SignChangeListener(VaylerynEssentials plugin) {
+	public BoatSignChangeListener(VaylerynEssentials plugin) {
 		this.plugin = plugin;
 	}
 	

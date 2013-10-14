@@ -1,4 +1,4 @@
-package io.github.vayleryn.vaylerynessentials;
+package io.github.vayleryn.vaylerynessentials.kit;
 
 import io.github.vayleryn.vaylerynlib.plugin.essentials.Kit;
 

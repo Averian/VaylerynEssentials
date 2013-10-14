@@ -1,4 +1,6 @@
-package io.github.vayleryn.vaylerynessentials;
+package io.github.vayleryn.vaylerynessentials.portcullis;
+
+import io.github.vayleryn.vaylerynessentials.VaylerynEssentials;
 
 import java.util.Collections;
 import java.util.HashSet;

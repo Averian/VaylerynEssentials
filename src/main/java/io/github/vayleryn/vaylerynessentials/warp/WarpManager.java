@@ -1,5 +1,6 @@
-package io.github.vayleryn.vaylerynessentials;
+package io.github.vayleryn.vaylerynessentials.warp;
 
+import io.github.vayleryn.vaylerynessentials.VaylerynEssentials;
 import io.github.vayleryn.vaylerynlib.util.serialisation.SerialisableLocation;
 
 import java.io.File;

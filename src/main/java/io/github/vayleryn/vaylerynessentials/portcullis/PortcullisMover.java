@@ -1,9 +1,12 @@
-package io.github.vayleryn.vaylerynessentials;
+package io.github.vayleryn.vaylerynessentials.portcullis;
+
+import io.github.vayleryn.vaylerynessentials.VaylerynEssentials;
 
 import java.awt.Point;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+
 import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -100,12 +103,12 @@ public class PortcullisMover implements Runnable {
 			boolean solidBlockFound = false;
 			for (int yy = y + 1; yy <= y + height; yy++) {
 				Material blockType = world.getBlockAt(x - dx, yy, z - dz).getType();
-				if (BlockRedstoneListener.WALL_MATERIALS.contains(blockType) || SUPPORTING_MATERIALS.contains(blockType)) {
+				if (PortcullisBlockRedstoneListener.WALL_MATERIALS.contains(blockType) || SUPPORTING_MATERIALS.contains(blockType)) {
 					solidBlockFound = true;
 					break;
 				}
 				blockType = world.getBlockAt(x + width * dx, yy, z + width * dz).getType();
-				if (BlockRedstoneListener.WALL_MATERIALS.contains(blockType) || SUPPORTING_MATERIALS.contains(blockType)) {
+				if (PortcullisBlockRedstoneListener.WALL_MATERIALS.contains(blockType) || SUPPORTING_MATERIALS.contains(blockType)) {
 					solidBlockFound = true;
 					break;
 				}
