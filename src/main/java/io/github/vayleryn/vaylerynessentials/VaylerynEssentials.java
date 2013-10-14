@@ -12,6 +12,7 @@ import io.github.vayleryn.vaylerynessentials.command.HealCommand;
 import io.github.vayleryn.vaylerynessentials.command.InventoryCommand;
 import io.github.vayleryn.vaylerynessentials.command.ItemCommand;
 import io.github.vayleryn.vaylerynessentials.command.ItemMetaCommand;
+import io.github.vayleryn.vaylerynessentials.command.JumpCommand;
 import io.github.vayleryn.vaylerynessentials.command.KitCommand;
 import io.github.vayleryn.vaylerynessentials.command.MsgCommand;
 import io.github.vayleryn.vaylerynessentials.command.RepairCommand;
@@ -96,6 +97,7 @@ public class VaylerynEssentials extends JavaPlugin implements EssentialsPlugin {
 		this.getCommand("inventory").setExecutor(new InventoryCommand(this));
 		this.getCommand("item").setExecutor(new ItemCommand(this));
 		this.getCommand("itemmeta").setExecutor(new ItemMetaCommand(this));
+		this.getCommand("jump").setExecutor(new JumpCommand(this));
 		this.getCommand("kit").setExecutor(new KitCommand(this));
 		this.getCommand("msg").setExecutor(new MsgCommand(this));
 		this.getCommand("repair").setExecutor(new RepairCommand(this));

@@ -27,6 +27,10 @@ commands:
     itemmeta:
         description: Edits the item meta of the item in your hand
         usage: /<command> [setname|addlore|removelore] [name|lore]
+    jump:
+        description: Jumps to the location in your line of sight
+        usage: /<command>
+        aliases: [jumpto, j]
     kit:
         description: Claims a kit
         usage: /<command> (kit)
@@ -94,6 +98,9 @@ permissions:
         default: op
     vayleryn.essentials.command.itemmeta:
         description: Allows you to modify item meta
+        default: op
+    vayleryn.essentials.command.jump:
+        description: Allows you to jump to locations
         default: op
     vayleryn.essentials.command.kit:
         description: Allows you to claim kits
