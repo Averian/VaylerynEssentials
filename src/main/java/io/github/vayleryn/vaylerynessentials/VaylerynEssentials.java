@@ -32,7 +32,6 @@ import io.github.vayleryn.vaylerynessentials.portcullis.PortcullisBlockRedstoneL
 import io.github.vayleryn.vaylerynessentials.portcullis.PortcullisPlayerInteractListener;
 import io.github.vayleryn.vaylerynessentials.portcullis.PortcullisSignChangeListener;
 import io.github.vayleryn.vaylerynessentials.warp.WarpManager;
-import io.github.vayleryn.vaylerynlib.Vayleryn;
 import io.github.vayleryn.vaylerynlib.plugin.essentials.EssentialsPlugin;
 import io.github.vayleryn.vaylerynlib.plugin.essentials.Kit;
 
@@ -60,7 +59,6 @@ public class VaylerynEssentials extends JavaPlugin implements EssentialsPlugin {
 	
 	@Override
 	public void onEnable() {
-		Vayleryn.registerEssentialsPlugin(this);
 		ConfigurationSerialization.registerClass(KitImpl.class);
 		this.registerListeners(new BoatPlayerInteractListener(this), new BoatSignChangeListener(this),
 				new BookshelfBlockBreakListener(this), new BookshelfPlayerInteractListener(this),
@@ -68,11 +66,8 @@ public class VaylerynEssentials extends JavaPlugin implements EssentialsPlugin {
 				new PortcullisBlockRedstoneListener(), new PortcullisPlayerInteractListener(), new PortcullisSignChangeListener(this));
 		this.registerCommands();
 		warpManager = new WarpManager(this);
-		warpManager.load();
 		kitManager = new KitManager(this);
-		kitManager.load();
 		bookshelfManager = new BookshelfManager(this);
-		bookshelfManager.load();
 	}
 	
 	@Override
@@ -115,6 +110,20 @@ public class VaylerynEssentials extends JavaPlugin implements EssentialsPlugin {
 	@Override
 	public String getPrefix() {
 		return "" + ChatColor.DARK_GRAY + ChatColor.MAGIC + "|" + ChatColor.RESET + ChatColor.BLUE + "VaylerynEssentials" + ChatColor.DARK_GRAY + ChatColor.MAGIC + "| " + ChatColor.RESET;
+	}
+	
+	@Override
+	public void loadState() {
+		warpManager.load();
+		kitManager.load();
+		bookshelfManager.load();
+	}
+	
+	@Override
+	public void saveState() {
+		warpManager.save();
+		kitManager.save();
+		bookshelfManager.save();
 	}
 	
 	@Override

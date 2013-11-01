@@ -1,7 +1,6 @@
 package io.github.vayleryn.vaylerynessentials.boat;
 
 import io.github.vayleryn.vaylerynessentials.VaylerynEssentials;
-import io.github.vayleryn.vaylerynlib.Vayleryn;
 import io.github.vayleryn.vaylerynlib.plugin.economy.EconomyPlugin;
 
 import org.bukkit.Bukkit;
@@ -38,7 +37,7 @@ public class BoatPlayerInteractListener implements Listener {
 					Double y = Double.parseDouble(coords.split(",")[1]);
 					Double z = Double.parseDouble(coords.split(",")[2]);
 					Location location = new Location(world, x, y, z);
-					EconomyPlugin economyPlugin = Vayleryn.getEconomyPlugin();
+					EconomyPlugin economyPlugin = plugin.getServer().getServicesManager().getRegistration(EconomyPlugin.class).getProvider();
 					Player player = event.getPlayer();
 					if (economyPlugin.getMoney(player) >= cost) {
 						economyPlugin.setMoney(player, economyPlugin.getMoney(player) - cost);
