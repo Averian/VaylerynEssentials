@@ -29,14 +29,37 @@ public class ItemMetaCommand implements CommandExecutor {
 					if (args.length >= 2) {
 						ItemMeta meta = player.getItemInHand().getItemMeta();
 						if (args[0].equalsIgnoreCase("setname")) {
-							meta.setDisplayName(args[1]);
+							StringBuilder nameBuilder = new StringBuilder();
+							for (int i = 1; i < args.length; i++) {
+								nameBuilder.append(args[i]);
+								if (i < args.length - 1) {
+									nameBuilder.append(" ");
+								}
+							}
+							meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', nameBuilder.toString()));
 						} else if (args[0].equalsIgnoreCase("addlore")) {
 							List<String> lore = meta.getLore();
-							lore.add(args[1]);
+							StringBuilder loreBuilder = new StringBuilder();
+							for (int i = 1; i < args.length; i++) {
+								loreBuilder.append(args[i]);
+								if (i < args.length - 1) {
+									loreBuilder.append(" ");
+								}
+							}
+							lore.add(ChatColor.translateAlternateColorCodes('&', loreBuilder.toString()));
 							meta.setLore(lore);
 						} else if (args[0].equalsIgnoreCase("removelore")) {
 							List<String> lore = meta.getLore();
-							lore.remove(args[1]);
+							StringBuilder loreBuilder = new StringBuilder();
+							for (int i = 1; i < args.length; i++) {
+								loreBuilder.append(args[i]);
+								if (i < args.length - 1) {
+									loreBuilder.append(" ");
+								}
+							}
+							if (lore.contains(ChatColor.translateAlternateColorCodes('&', loreBuilder.toString()))) {
+								lore.remove(ChatColor.translateAlternateColorCodes('&', loreBuilder.toString()));
+							}
 							meta.setLore(lore);
 						} else {
 							sender.sendMessage(plugin.getPrefix() + ChatColor.RED + "Usage: /itemmeta [setname|addlore|removelore] [name|lore]");
