@@ -36,11 +36,11 @@ public class SpawnerCommand implements CommandExecutor {
 					Block block = getTargetBlock(player, null, 32);
 					if (block.getType() == Material.MOB_SPAWNER) {
 						CreatureSpawner spawner = (CreatureSpawner) block.getState();
-						if (EntityType.valueOf(args[0]) != null) {
-							EntityType entityType = EntityType.valueOf(args[0]);
+						try {
+							EntityType entityType = EntityType.valueOf(args[0].toUpperCase());
 							spawner.setSpawnedType(entityType);
 							sender.sendMessage(plugin.getPrefix() + ChatColor.GREEN + "Spawner type set.");
-						} else {
+						} catch (IllegalArgumentException exception) {
 							sender.sendMessage(plugin.getPrefix() + ChatColor.RED + "That entity does not exist.");
 						}
 					} else {
