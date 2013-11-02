@@ -5,6 +5,12 @@
   <version>0.0.4-SNAPSHOT</version>
   <name>VaylerynEssentials</name>
   <description>Essential commands and features</description>
+  <scm>
+    <connection>scm:git:https://github.com/Vayleryn/VaylerynEssentials.git</connection>
+    <url>https://github.com/Vayleryn/VaylerynEssentials</url>
+    <developerConnection>scm:git:https://github.com/Vayleryn/VaylerynEssentials.git</developerConnection>
+    <tag>HEAD</tag>
+  </scm>
   <repositories>
     <repository>
       <id>vaylerynlib-repo</id>
@@ -37,6 +43,14 @@
         <configuration>
           <source>1.7</source>
           <target>1.7</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.4.1</version>
+        <configuration>
+          <tagNameFormat>v@{project.version}</tagNameFormat>
         </configuration>
       </plugin>
     </plugins>
