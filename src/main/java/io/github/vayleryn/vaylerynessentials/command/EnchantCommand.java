@@ -29,7 +29,7 @@ public class EnchantCommand implements CommandExecutor {
 							if (Enchantment.getByName(args[0].toUpperCase()) != null) {
 								try {
 									player.getItemInHand().addUnsafeEnchantment(Enchantment.getByName(args[0].toUpperCase()), Integer.parseInt(args[1]));
-									sender.sendMessage(plugin.getPrefix() + ChatColor.GREEN + "Successfully enchanted " + player.getItemInHand().getAmount() + " x " + player.getItemInHand().getType() + " with " + Enchantment.getByName(args[0]).getName() + " " + Integer.parseInt(args[1]));
+									sender.sendMessage(plugin.getPrefix() + ChatColor.GREEN + "Successfully enchanted " + player.getItemInHand().getAmount() + " x " + player.getItemInHand().getType() + " with " + Enchantment.getByName(args[0].toUpperCase()).getName() + " " + Integer.parseInt(args[1]));
 								} catch (NumberFormatException exception) {
 									sender.sendMessage(plugin.getPrefix() + ChatColor.RED + "The enchantment level must be a number");
 								} catch (IllegalArgumentException exception) {
@@ -42,7 +42,7 @@ public class EnchantCommand implements CommandExecutor {
 							if (Enchantment.getByName(args[0].toUpperCase()) != null) {
 								try {
 									player.getItemInHand().addEnchantment(Enchantment.getByName(args[0].toUpperCase()), Integer.parseInt(args[1]));
-									sender.sendMessage(plugin.getPrefix() + ChatColor.GREEN + "Successfully enchanted " + player.getItemInHand().getAmount() + " x " + player.getItemInHand().getType() + " with " + Enchantment.getByName(args[0]).getName() + " " + Integer.parseInt(args[1]));
+									sender.sendMessage(plugin.getPrefix() + ChatColor.GREEN + "Successfully enchanted " + player.getItemInHand().getAmount() + " x " + player.getItemInHand().getType() + " with " + Enchantment.getByName(args[0].toUpperCase()).getName() + " " + Integer.parseInt(args[1]));
 								} catch (NumberFormatException exception) {
 									sender.sendMessage(plugin.getPrefix() + ChatColor.RED + "The enchantment level must be a number");
 								} catch (IllegalArgumentException exception) {
