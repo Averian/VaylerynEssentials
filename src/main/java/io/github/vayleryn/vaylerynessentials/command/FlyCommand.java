@@ -29,7 +29,7 @@ public class FlyCommand implements CommandExecutor {
 				}
 			}
 			if (player != null) {
-				player.setFlying(!player.getAllowFlight());
+				player.setAllowFlight(!player.getAllowFlight());
 				if (player.getAllowFlight()) {
 					player.sendMessage(plugin.getPrefix() + ChatColor.GREEN + "Fly mode enabled.");
 					sender.sendMessage(plugin.getPrefix() + ChatColor.GREEN + "Allowed " + player.getName() + " to fly.");
