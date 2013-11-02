@@ -23,8 +23,8 @@ public class SpawnMobCommand implements CommandExecutor {
 			if (args.length >= 2) {
 				if (sender instanceof Player) {
 					Player player = (Player) sender;
-					if (EntityType.valueOf(args[0]) != null) {
-						EntityType entityType = EntityType.valueOf(args[0]);
+					try {
+						EntityType entityType = EntityType.valueOf(args[0].toUpperCase());
 						try {
 							int amount = Integer.parseInt(args[1]);
 							for (int i = 0; i < amount; i++) {
@@ -34,7 +34,7 @@ public class SpawnMobCommand implements CommandExecutor {
 						} catch (NumberFormatException exception) {
 							sender.sendMessage(plugin.getPrefix() + ChatColor.RED + "The amount of mobs must be an integer.");
 						}
-					} else {
+					} catch (IllegalArgumentException exception) {
 						sender.sendMessage(plugin.getPrefix() + ChatColor.RED + "That entity type does not exist.");
 					}
 				} else {
