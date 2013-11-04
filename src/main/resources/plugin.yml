@@ -3,7 +3,7 @@ author: Lucariatias
 version: ${project.version}
 description: ${project.description}
 main: io.github.vayleryn.vaylerynessentials.VaylerynEssentials
-depend: [VaylerynLib]
+depend: [Vault]
 commands:
     enchant:
         description: Enchants the item in your hand

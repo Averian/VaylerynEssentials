@@ -1,7 +1,5 @@
 package io.github.vayleryn.vaylerynessentials.kit;
 
-import io.github.vayleryn.vaylerynlib.plugin.essentials.Kit;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -10,18 +8,16 @@ import org.bukkit.configuration.serialization.ConfigurationSerializable;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-public class KitImpl implements Kit, ConfigurationSerializable {
+public class Kit implements ConfigurationSerializable {
 	
 	private Collection<ItemStack> items = new ArrayList<ItemStack>();
 	
-	@Override
 	public void give(Player player) {
 		for (ItemStack item : items) {
 			player.getInventory().addItem(item);
 		}
 	}
 
-	@Override
 	public Collection<ItemStack> getItems() {
 		return items;
 	}
@@ -34,8 +30,8 @@ public class KitImpl implements Kit, ConfigurationSerializable {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public static KitImpl deserialize(Map<String, Object> serialised) {
-		KitImpl deserialised = new KitImpl();
+	public static Kit deserialize(Map<String, Object> serialised) {
+		Kit deserialised = new Kit();
 		deserialised.items = (Collection<ItemStack>) serialised.get("items");
 		return deserialised;
 	}

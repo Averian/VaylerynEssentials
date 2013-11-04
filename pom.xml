@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.github.vayleryn</groupId>
   <artifactId>vaylerynessentials</artifactId>
-  <version>0.0.5-SNAPSHOT</version>
+  <version>0.0.5-SNAPSHOT+averian</version>
   <name>VaylerynEssentials</name>
   <description>Essential commands and features</description>
   <scm>
@@ -13,15 +13,24 @@
   </scm>
   <repositories>
     <repository>
-      <id>vaylerynlib-repo</id>
-      <url>https://raw.github.com/Vayleryn/VaylerynLib/mvn-repo/</url>
+      <id>bukkit-repo</id>
+      <url>http://repo.bukkit.org/content/groups/public/</url>
     </repository>
+    <repository>
+	  <id>vault-repo</id>
+	  <url>http://ci.herocraftonline.com/plugin/repository/everything</url>
+	</repository>
   </repositories>
   <dependencies>
     <dependency>
-      <groupId>io.github.vayleryn</groupId>
-      <artifactId>vaylerynlib</artifactId>
-      <version>0.1.3</version>
+      <groupId>org.bukkit</groupId>
+      <artifactId>bukkit</artifactId>
+      <version>1.6.4-R2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>net.milkbowl</groupId>
+      <artifactId>vault</artifactId>
+      <version>1.2.27</version>
     </dependency>
   </dependencies>
   <build>

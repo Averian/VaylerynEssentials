@@ -26,14 +26,13 @@ import io.github.vayleryn.vaylerynessentials.command.SpeedCommand;
 import io.github.vayleryn.vaylerynessentials.command.SudoCommand;
 import io.github.vayleryn.vaylerynessentials.command.UnsignCommand;
 import io.github.vayleryn.vaylerynessentials.command.WarpCommand;
-import io.github.vayleryn.vaylerynessentials.kit.KitImpl;
+import io.github.vayleryn.vaylerynessentials.kit.Kit;
 import io.github.vayleryn.vaylerynessentials.kit.KitManager;
 import io.github.vayleryn.vaylerynessentials.portcullis.PortcullisBlockRedstoneListener;
 import io.github.vayleryn.vaylerynessentials.portcullis.PortcullisPlayerInteractListener;
 import io.github.vayleryn.vaylerynessentials.portcullis.PortcullisSignChangeListener;
 import io.github.vayleryn.vaylerynessentials.warp.WarpManager;
-import io.github.vayleryn.vaylerynlib.plugin.essentials.EssentialsPlugin;
-import io.github.vayleryn.vaylerynlib.plugin.essentials.Kit;
+import io.github.vayleryn.vaylerynlib.util.serialisation.SerialisableLocation;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -51,7 +50,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class VaylerynEssentials extends JavaPlugin implements EssentialsPlugin {
+public class VaylerynEssentials extends JavaPlugin {
 	
 	private WarpManager warpManager;
 	private KitManager kitManager;
@@ -59,7 +58,8 @@ public class VaylerynEssentials extends JavaPlugin implements EssentialsPlugin {
 	
 	@Override
 	public void onEnable() {
-		ConfigurationSerialization.registerClass(KitImpl.class);
+		ConfigurationSerialization.registerClass(Kit.class);
+		ConfigurationSerialization.registerClass(SerialisableLocation.class);
 		this.registerListeners(new BoatPlayerInteractListener(this), new BoatSignChangeListener(this),
 				new BookshelfBlockBreakListener(this), new BookshelfPlayerInteractListener(this),
 				new PlayerJoinListener(this),
@@ -68,13 +68,12 @@ public class VaylerynEssentials extends JavaPlugin implements EssentialsPlugin {
 		warpManager = new WarpManager(this);
 		kitManager = new KitManager(this);
 		bookshelfManager = new BookshelfManager(this);
+		loadState();
 	}
 	
 	@Override
 	public void onDisable() {
-		warpManager.save();
-		kitManager.save();
-		bookshelfManager.save();
+		saveState();
 	}
 	
 	private void registerListeners(Listener... listeners) {
@@ -107,41 +106,34 @@ public class VaylerynEssentials extends JavaPlugin implements EssentialsPlugin {
 		this.getCommand("warp").setExecutor(new WarpCommand(this));
 	}
 	
-	@Override
 	public String getPrefix() {
 		return "" + ChatColor.DARK_GRAY + ChatColor.MAGIC + "|" + ChatColor.RESET + ChatColor.BLUE + "VaylerynEssentials" + ChatColor.DARK_GRAY + ChatColor.MAGIC + "| " + ChatColor.RESET;
 	}
 	
-	@Override
 	public void loadState() {
 		warpManager.load();
 		kitManager.load();
 		bookshelfManager.load();
 	}
 	
-	@Override
 	public void saveState() {
 		warpManager.save();
 		kitManager.save();
 		bookshelfManager.save();
 	}
 	
-	@Override
 	public Map<String, Location> getWarps() {
 		return warpManager.getWarps();
 	}
 	
-	@Override
 	public Location getWarp(String name) {
 		return warpManager.getWarp(name);
 	}
 	
-	@Override
 	public Map<String, Kit> getKits() {
 		return kitManager.getKits();
 	}
 	
-	@Override
 	public Kit getKit(String name) {
 		return kitManager.getKit(name);
 	}

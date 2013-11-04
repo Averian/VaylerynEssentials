@@ -1,8 +1,6 @@
 package io.github.vayleryn.vaylerynessentials.kit;
 
 import io.github.vayleryn.vaylerynessentials.VaylerynEssentials;
-import io.github.vayleryn.vaylerynlib.plugin.essentials.Kit;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;

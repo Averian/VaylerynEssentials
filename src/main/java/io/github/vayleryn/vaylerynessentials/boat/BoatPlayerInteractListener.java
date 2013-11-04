@@ -1,7 +1,7 @@
 package io.github.vayleryn.vaylerynessentials.boat;
 
 import io.github.vayleryn.vaylerynessentials.VaylerynEssentials;
-import io.github.vayleryn.vaylerynlib.plugin.economy.EconomyPlugin;
+import net.milkbowl.vault.economy.Economy;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -37,10 +37,10 @@ public class BoatPlayerInteractListener implements Listener {
 					Double y = Double.parseDouble(coords.split(",")[1]);
 					Double z = Double.parseDouble(coords.split(",")[2]);
 					Location location = new Location(world, x, y, z);
-					EconomyPlugin economyPlugin = plugin.getServer().getServicesManager().getRegistration(EconomyPlugin.class).getProvider();
+					Economy economy = plugin.getServer().getServicesManager().getRegistration(Economy.class).getProvider();
 					Player player = event.getPlayer();
-					if (economyPlugin.getMoney(player) >= cost) {
-						economyPlugin.setMoney(player, economyPlugin.getMoney(player) - cost);
+					if (economy.getBalance(player.getName()) >= cost) {
+						economy.withdrawPlayer(player.getName(), cost);
 						player.teleport(location);
 						player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 200, 0));
 					} else {
