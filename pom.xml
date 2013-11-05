@@ -1,14 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>io.github.vayleryn</groupId>
-  <artifactId>vaylerynessentials</artifactId>
+  <groupId>io.github.averian</groupId>
+  <artifactId>averianessentials</artifactId>
   <version>0.0.5-SNAPSHOT+averian</version>
   <name>VaylerynEssentials</name>
   <description>Essential commands and features</description>
   <scm>
-    <connection>scm:git:https://github.com/Vayleryn/VaylerynEssentials.git</connection>
-    <url>https://github.com/Vayleryn/VaylerynEssentials</url>
-    <developerConnection>scm:git:https://github.com/Vayleryn/VaylerynEssentials.git</developerConnection>
+    <connection>scm:git:https://github.com/Averian/AverianEssentials.git</connection>
+    <url>https://github.com/Averian/AverianEssentials</url>
+    <developerConnection>scm:git:https://github.com/Averian/AverianEssentials.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
   <repositories>
