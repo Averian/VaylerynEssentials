@@ -3,7 +3,7 @@
   <groupId>io.github.averian</groupId>
   <artifactId>averianessentials</artifactId>
   <version>0.0.5-SNAPSHOT+averian</version>
-  <name>VaylerynEssentials</name>
+  <name>AverianEssentials</name>
   <description>Essential commands and features</description>
   <scm>
     <connection>scm:git:https://github.com/Averian/AverianEssentials.git</connection>
